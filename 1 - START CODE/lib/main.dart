@@ -7,15 +7,11 @@ void main() {
   final filePath = 'quiz.json';
 
   repo.readQuiz(filePath);
-  if (repo.questions.isEmpty) {
-    print("Quiz file not found or empty. Write.....");
-    repo.writeQuiz(filePath);
-  } else {
-    print("Quiz loaded from file.");
-  }
-
+  repo.writeQuiz(filePath);
+  
   Quiz quiz = Quiz(questions: repo.questions);
   QuizConsole console = QuizConsole(quiz: quiz);
 
   console.startQuiz();
 }
+
